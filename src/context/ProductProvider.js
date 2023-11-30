@@ -16,14 +16,14 @@ const PRODUCT_CONTEXT = createContext();
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
-  console.log(state);
+  console.log("State", state);
 
   useEffect(() => {
     dispatch({ type: actionTypes.FETCHING_START });
     fetch("http://localhost:5000/products")
-      .then((res) => res.json())
+      .then((res) => (res.json()))
       .then((data) =>
-        dispatch({ type: actionTypes.FETCHING_SUCCESS, payload: data.data })
+        dispatch({ type: actionTypes.FETCHING_SUCCESS, payload: data })
       )
       .catch(() => {
         dispatch({ type: actionTypes.FETCHING_ERROR });

@@ -17,7 +17,7 @@ const Home = () => {
     content = <p>Something went wrong</p>;
   }
 
-  if (!loading && !error && products.length === 0) {
+  if (!loading && !error && products?.length === 0) {
     content = <p>Nothing to show, product list is empty</p>;
   }
 
